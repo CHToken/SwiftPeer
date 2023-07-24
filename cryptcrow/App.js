@@ -1,7 +1,7 @@
 import React from "react";
 import { NavigationContainer } from "@react-navigation/native";
 import { createStackNavigator } from "@react-navigation/stack";
-import { View, StyleSheet } from "react-native";
+import { SafeAreaView, StyleSheet } from "react-native";
 import WelcomeScreen from "./screen/WelcomeScreen";
 import FlashMessage from "react-native-flash-message";
 import HomeScreen from "./screen/HomeScreen";
@@ -14,7 +14,7 @@ const Stack = createStackNavigator();
 
 const App = () => {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <NavigationContainer>
         <Stack.Navigator>
           <Stack.Screen
@@ -50,7 +50,7 @@ const App = () => {
         </Stack.Navigator>
         <FlashMessage position="top" />
       </NavigationContainer>
-    </View>
+    </SafeAreaView>
   );
 };
 

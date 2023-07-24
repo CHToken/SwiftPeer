@@ -1,7 +1,7 @@
 {
   "expo": {
-    "name": "cryptcrow",
-    "slug": "cryptcrow",
+    "name": "swiftpeer",
+    "slug": "swiftpeer",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
@@ -16,12 +16,10 @@
       "supportsTablet": true
     },
     "android": {
-      "googleServicesFile": "./google-services.json",
       "adaptiveIcon": {
         "foregroundImage": "./assets/icon.png",
         "backgroundColor": "#000000"
-      },
-      "package": "com.techytro.cryptcrow"
+      }
     },
     "web": {
       "favicon": "./assets/icon.png"

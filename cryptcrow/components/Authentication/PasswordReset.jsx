@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useFonts } from "expo-font";
 import {
   View,
   TextInput,
@@ -6,6 +7,7 @@ import {
   TouchableOpacity,
   StyleSheet,
   Image,
+  SafeAreaView,
 } from "react-native";
 import { showMessage } from "react-native-flash-message";
 import { forgotPassword } from "../service/AuthService";
@@ -14,6 +16,10 @@ import Background from "../Background";
 // import styles from "./PasswordResetStyles";
 
 const PasswordReset = () => {
+  const [fontsLoaded] = useFonts({
+    "Font-Bolds": require("../../assets/fonts/DMSans-Bold.ttf"),
+  });
+
   const [email, setEmail] = useState("");
   const [isLoading, setIsLoading] = useState(false);
 
@@ -44,9 +50,13 @@ const PasswordReset = () => {
     }
   };
 
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <Background>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Image
           source={require("../../assets/icon.png")}
           style={styles.logo}
@@ -75,7 +85,7 @@ const PasswordReset = () => {
             {isLoading ? "Sending..." : "Reset Password"}
           </Text>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     </Background>
   );
 };
@@ -93,7 +103,7 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: "200",
     marginBottom: 10,
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     color: "#fff",
   },
   logo: {
@@ -106,7 +116,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
     marginBottom: 50,
     textAlign: "center",
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     color: "#fff",
   },
   inputContainer: {
@@ -119,7 +129,7 @@ const styles = StyleSheet.create({
     marginLeft: 10,
     marginBottom: 2,
     color: "#fff",
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
   },
   input: {
     borderWidth: 1,
@@ -128,7 +138,7 @@ const styles = StyleSheet.create({
     paddingVertical: 8,
     color: "white",
     margin: 10,
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     paddingHorizontal: 10,
   },
   resetButton: {
@@ -150,7 +160,7 @@ const styles = StyleSheet.create({
     color: "black",
     fontSize: 18,
     fontWeight: "200",
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
   },
 });
 

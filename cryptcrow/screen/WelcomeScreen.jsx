@@ -17,8 +17,7 @@ import Background from "../components/Background";
 
 const WelcomeScreen = () => {
   const [fontsLoaded] = useFonts({
-    "Font-Bold": require("../assets/fonts/Millik.ttf"),
-    Regular: require("../assets/fonts/DMSans-Regular.ttf"),
+    "Font-Regular": require("../assets/fonts/DMSans-Regular.ttf"),
     "Font-Medium": require("../assets/fonts/DMSans-Medium.ttf"),
     "Font-Bolds": require("../assets/fonts/DMSans-Bold.ttf"),
   });
@@ -76,12 +75,12 @@ const WelcomeScreen = () => {
           style={styles.content}
         >
           <Image
-            source={require("../assets/icon.png")}
+            source={require("../assets/images/swiftpeer.png")}
             style={styles.logo}
             resizeMode="contain"
           />
           <Animated.Text style={[styles.title, { opacity: titleOpacity }]}>
-            CryptCrow
+            SwiftPeer
           </Animated.Text>
           <Text style={styles.subtitle}>
             Unleash the Power of Instant{"\n"}Crypto Sales

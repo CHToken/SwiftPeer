@@ -6,9 +6,9 @@ const styles = {
     backgroundColor: "rgba(12, 9, 10, 0.8)",
   },
   logo: {
-    width: "25%",
+    width: "50%",
     height: "15%",
-    backgroundColor: "black",
+    backgroundColor: "transparent",
   },
   backIconContainer: {
     position: "absolute",
@@ -17,9 +17,10 @@ const styles = {
     zIndex: 1,
   },
   loginTitle: {
-    fontFamily: "Font-Bold",
-    fontSize: 23,
+    fontFamily: "Font-Bolds",
+    fontSize: 25,
     color: "#fff",
+    fontWeight: "bold",
     marginBottom: 15,
     textAlign: "center",
   },
@@ -27,7 +28,7 @@ const styles = {
     marginBottom: 30,
   },
   loginSubTitle: {
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 15,
     color: "rgba(255, 255, 255, 0.8)",
     marginBottom: 30,
@@ -36,7 +37,7 @@ const styles = {
     textAlign: "center",
   },
   label: {
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 16,
     marginBottom: 5,
     color: "white",
@@ -73,21 +74,21 @@ const styles = {
     alignItems: "center",
   },
   registerLink: {
-    fontFamily: "Font-Bold",
-    fontSize: 20,
+    fontFamily: "Font-Bolds",
+    fontSize: 21,
     alignItems: "center",
-    fontWeight: "300",
+    fontWeight: "bold",
     color: "black",
   },
   alternateText: {
     color: "grey",
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 13,
     marginTop: 15,
   },
   span: {
     color: "#90EE90",
-    fontSize: 15,
+    fontSize: 16,
   },
 };
 

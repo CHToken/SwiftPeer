@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useFonts } from "expo-font";
 import {
   View,
   TextInput,
@@ -6,6 +7,7 @@ import {
   TouchableOpacity,
   Image,
   ActivityIndicator,
+  SafeAreaView,
 } from "react-native";
 import { useNavigation } from "@react-navigation/native";
 import { MaterialIcons, Ionicons } from "@expo/vector-icons";
@@ -14,6 +16,9 @@ import styles from "./RegisterStyles";
 import { registerUser } from "../service/AuthService";
 
 const Register = () => {
+  const [fontsLoaded] = useFonts({
+    "Font-Bolds": require("../../assets/fonts/DMSans-Bold.ttf"),
+  });
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [username, setUsername] = useState("");
@@ -49,11 +54,15 @@ const Register = () => {
     setShowPassword(!showPassword);
   };
 
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <Background>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Image
-          source={require("../../assets/icon.png")}
+          source={require("../../assets/images/swiftpeer.png")}
           style={styles.logo}
           resizeMode="contain"
         />
@@ -67,7 +76,7 @@ const Register = () => {
         </View>
         <View style={styles.inputContainer}>
           <View style={styles.titlepart}>
-            <Text style={styles.loginTitle}>{"\n"}Welcome to CryptCrow!</Text>
+            <Text style={styles.loginTitle}>{"\n"}Welcome to SwiftPeer!</Text>
             <Text style={styles.loginSubTitle}>
               Register to create your first account and start trading!
             </Text>
@@ -156,10 +165,10 @@ const Register = () => {
         <Text style={styles.alternateText}>
           Already have an account?{" "}
           <Text style={styles.linkText} onPress={handleLogin}>
-            <Text style={styles.span}>Log In </Text>
+            <Text style={styles.span}>Sign In </Text>
           </Text>
         </Text>
-      </View>
+      </SafeAreaView>
     </Background>
   );
 };

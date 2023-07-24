@@ -10,11 +10,10 @@ const styles = StyleSheet.create({
     resizeMode: "cover",
   },
   logo: {
-    width: "50%",
-    height: "15%",
-    marginBottom: 50,
+    width: "60%",
+    marginBottom: 10,
     justifyContent: "center",
-    backgroundColor: "black",
+    backgroundColor: "transparent",
   },
   content: {
     flex: 1,
@@ -24,7 +23,7 @@ const styles = StyleSheet.create({
     backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   title: {
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 60,
     fontWeight: "500",
     letterSpacing: -0.03,
@@ -33,7 +32,7 @@ const styles = StyleSheet.create({
     color: "#fff",
   },
   subtitle: {
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 20,
     fontWeight: "500",
     letterSpacing: -0.03,
@@ -62,7 +61,7 @@ const styles = StyleSheet.create({
     boxSizing: "border-box",
   },
   slideButtonText: {
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 20,
     fontWeight: "500",
     letterSpacing: -0.03,

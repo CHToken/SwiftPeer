@@ -6,10 +6,9 @@ const styles = {
     backgroundColor: "rgba(12, 9, 10, 0.8)",
   },
   logo: {
-    width: "30%",
-    height: "15%",
-    marginBottom: 30,
-    backgroundColor: "black",
+    width: "55%",
+    marginBottom: 10,
+    backgroundColor: "transparent",
   },
   backIconContainer: {
     position: "absolute",
@@ -18,14 +17,15 @@ const styles = {
     zIndex: 1,
   },
   loginTitle: {
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 30,
+    fontWeight: "bold",
     color: "#fff",
     marginBottom: 10,
     textAlign: "center",
   },
   topicon: {
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 30,
     color: "#90EE90",
   },
@@ -33,7 +33,7 @@ const styles = {
     marginBottom: 30,
   },
   loginSubTitle: {
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 15,
     color: "rgba(255, 255, 255, 0.6)",
     marginBottom: 30,
@@ -46,7 +46,7 @@ const styles = {
     marginBottom: 10,
   },
   label: {
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 16,
     marginBottom: 5,
     color: "white",
@@ -77,10 +77,10 @@ const styles = {
     alignItems: "center",
   },
   loginButtonText: {
-    fontFamily: "Font-Bold",
-    fontSize: 20,
+    fontFamily: "Font-Bolds",
+    fontSize: 21,
     alignItems: "center",
-    fontWeight: "500",
+    fontWeight: "bold",
     color: "#000",
   },
   registerButton: {
@@ -94,13 +94,13 @@ const styles = {
   },
   alternateText: {
     color: "grey",
-    fontFamily: "Font-Bold",
+    fontFamily: "Font-Bolds",
     fontSize: 13,
     marginTop: 15,
   },
   span: {
     color: "#90EE90",
-    fontSize: 15,
+    fontSize: 16,
   },
   iconContainer: {
     marginRight: 10,

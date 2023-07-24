@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useFonts } from "expo-font";
 import { showMessage } from "react-native-flash-message";
 import {
   View,
@@ -7,6 +8,7 @@ import {
   TouchableOpacity,
   Image,
   ActivityIndicator,
+  SafeAreaView,
 } from "react-native";
 import { login } from "../service/AuthService";
 import { MaterialIcons } from "@expo/vector-icons";
@@ -17,6 +19,10 @@ import styles from "./LoginStyles";
 import { useNavigation } from "@react-navigation/native";
 
 const Login = () => {
+  const [fontsLoaded] = useFonts({
+    "Font-Bolds": require("../../assets/fonts/DMSans-Bold.ttf"),
+  });
+
   const navigation = useNavigation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,33 +41,22 @@ const Login = () => {
     setIsLoading(true);
 
     try {
-      const { token, userData } = await login(email, password);
-      // to store the user token and data
-      console.log("User Token:", token);
-      console.log("User Data:", userData);
+      const { token, userData, error } = await login(email, password);
 
-      // Reset input fields
-      setEmail("");
-      setPassword("");
-      navigation.navigate("Home");
-    } catch (error) {
-      console.log(error.message);
-      if (error.code === "auth/user-not-found") {
+      if (error) {
         showMessage({
-          message: "Email not found. Please enter a valid email.",
-          type: "danger",
-        });
-      } else if (error.code === "auth/wrong-password") {
-        showMessage({
-          message: "Incorrect password. Please enter the correct password.",
+          message: error,
           type: "danger",
         });
       } else {
-        showMessage({
-          message: "Login Error",
-          description: error.message,
-          type: "danger",
-        });
+        // to store the user token and data
+        console.log("User Token:", token);
+        console.log("User Data:", userData);
+
+        // Reset input fields
+        setEmail("");
+        setPassword("");
+        navigation.navigate("Home");
       }
     } finally {
       setIsLoading(false);
@@ -80,11 +75,15 @@ const Login = () => {
     setShowPassword(!showPassword);
   };
 
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <Background>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <Image
-          source={require("../../assets/icon.png")}
+          source={require("../../assets/images/swiftpeer.png")}
           style={styles.logo}
           resizeMode="contain"
         />
@@ -147,7 +146,7 @@ const Login = () => {
           {isLoading ? (
             <ActivityIndicator color="green" />
           ) : (
-            <Text style={styles.loginButtonText}>Login</Text>
+            <Text style={styles.loginButtonText}>Sign In</Text>
           )}
         </TouchableOpacity>
         <Text style={styles.alternateText}>
@@ -162,7 +161,7 @@ const Login = () => {
         >
           <Text style={styles.forgotPasswordText}>Forgot Password?</Text>
         </TouchableOpacity>
-      </View>
+      </SafeAreaView>
     </Background>
   );
 };

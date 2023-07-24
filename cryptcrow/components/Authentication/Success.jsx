@@ -1,20 +1,28 @@
 import React from "react";
-import { View, Text, TouchableOpacity } from "react-native";
+import { useFonts } from "expo-font";
+import { View, Text, TouchableOpacity, SafeAreaView } from "react-native";
 import { MaterialIcons } from "@expo/vector-icons";
 import { useNavigation } from "@react-navigation/native";
 import Background from "../Background";
 import styles from "./SuccessStyles";
 
 const Success = () => {
+  const [fontsLoaded] = useFonts({
+    "Font-Bolds": require("../../assets/fonts/DMSans-Bold.ttf"),
+  });
   const navigation = useNavigation();
 
   const handleContinue = () => {
     navigation.navigate("Home");
   };
 
+  if (!fontsLoaded) {
+    return null;
+  }
+
   return (
     <Background>
-      <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
         <View style={styles.successContainer}>
           <View style={styles.successIconContainer}>
             <MaterialIcons name="check" size={85} color="white" />
@@ -27,7 +35,7 @@ const Success = () => {
             <Text style={styles.continueButton}>Continue</Text>
           </TouchableOpacity>
         </View>
-      </View>
+      </SafeAreaView>
     </Background>
   );
 };
